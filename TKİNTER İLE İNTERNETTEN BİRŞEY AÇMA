@@ -1,0 +1,13 @@
+from tkinter import *
+import webbrowser
+
+x=Tk()
+x.geometry("400x200")
+
+def l():
+    webbrowser.open_new("https://www.youtube.com/watch?v=_FlBCJbb2oo&list=RDVCY2cAQ-A9I&index=2")
+    
+btn=Button(text="site aç",fg="red",command=l)
+btn.pack(pady=50)
+
+x.mainloop()
