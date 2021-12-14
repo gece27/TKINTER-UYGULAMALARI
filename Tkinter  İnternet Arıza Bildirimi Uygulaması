@@ -1,0 +1,53 @@
+import tkinter as tk
+from tkinter import *
+
+from tkinter import messagebox
+from tkinter.ttk import Combobox
+
+pencere=Tk()
+pencere.geometry("300x300")
+pencere.title("internet arıza uygulaması")
+pencere.config(bg="#39D4F2")
+
+baslık=Label(text="ARIZA BİLDİRİM",bg="black",fg="white",font="Times 17 bold").pack()
+
+ad=Label(text="KLLLANICI ADI:",bg="gray",fg="white",font="Times 9 bold").place(x=20,y=90)
+
+sifre=Label(text="ŞİFRE:",bg="gray",fg="white",font="Times 9 bold").place(x=35,y=130)
+
+ad_entry=Entry()
+ad_entry.place(x=120,y=90) #eğer get ile direk alckasak boyle yazca
+
+sifre_entry=Entry(show="*")
+sifre_entry.place(x=120,y=130)
+
+def giris():
+    if ad_entry.get()=="zeki" and sifre_entry.get()=="kısa":
+        msg=messagebox.showinfo("tebrikler",message="giriş tamam")
+        if msg=="ok":
+            basvuru=Toplevel() #yeni pencere
+            basvuru.geometry("350x350")
+            basvuru.title("BAŞVURU AŞAMASI")
+            basvuru.config(bg="#E439F2")
+            baslık=Label(basvuru,text="ARIZA BİLDİRİM",bg="#39F276",fg="#3949F2",font="Times 20 bold" ).pack()
+             
+            ad_soyad=Label(basvuru,text="ad-soyad",bg="yellow",font="consoles 17 bold").place(x=40,y=50)
+            
+            s=["toyota","hyunda","kartal"]
+            cb=Combobox(basvuru,values=s).place(x=40,y=170)
+            
+            name=Entry(basvuru).place(x=140,y=50)
+        
+            basvuru.mainloop()
+           
+        
+        
+        
+def iptal():
+    pencere.destroy() #pencereyi kaldırır
+
+giris=Button(text="giriş",command=giris,activebackground="green").place(x=120,y=180,width=60)
+iptal=Button(text="iptal",command=iptal,activebackground="green").place(x=190,y=180,width=60)
+
+
+pencere.mainloop()
