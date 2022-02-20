@@ -1,0 +1,30 @@
+from tkinter import * 
+import tkinter as tk
+#menu yapımı
+pencere=Tk()
+
+def ac():
+    basvuru=Toplevel() #yeni pencere
+    basvuru.geometry("350x350")
+    basvuru.title("BAŞVURU AŞAMASI")
+    basvuru.config(bg="#E439F2")
+    baslık=Label(basvuru,text="ARIZA BİLDİRİM",bg="#39F276",fg="#3949F2",font="Times 20 bold" ).pack()
+
+men=Menu(pencere)
+
+#1.
+dosya=Menu(men,tearoff=0)
+dosya.add_command(label="yeni")
+dosya.add_command(label="aç")
+dosya.add_separator()
+men.add_cascade(label="menu1",menu=dosya)
+#2. SEÇENEK
+dosya2=Menu(men,tearoff=0)
+dosya2.add_command(label="yeni")
+dosya2.add_command(label="aç",command=ac)
+dosya2.add_separator()
+men.add_cascade(label="menu2",menu=dosya2)
+
+
+pencere.config(menu=men)
+pencere.mainloop()
